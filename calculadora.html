@@ -17,48 +17,82 @@
 
         <div class="calculadora">
             <h1> Calculadora </h1>
-                <p id="resultado"> teste </p> <!--- Dentro deste id jogaremos o resultado da operação -->
+                <p id="resultado"> </p> <!--- Dentro deste id jogaremos o resultado da operação -->
                     <table> 
                         <tr> <!-- Botões -->
-                            <td><button class="botao"> C </button></td>
-                            <td><button class="botao"> < </button></td>
-                            <td><button class="botao"> / </button></td>
-                            <td><button class="botao"> x </button></td> <!-- Caso não consiga fazer a operação de vezes("x") usem o asterisco("*") no lugar do x, neste caso ele identifica a operação.-->
+                            <td><button class="botao" onClick="clean()"> C </button></td>
+                            <td><button class="botao" onClick="back()"> < </button></td>
+                            <td><button class="botao" onclick="insert('/')"> / </button></td>
+                            <td><button class="botao" onclick="insert('*')"> X </button></td> <!-- Caso não consiga fazer a operação de vezes("x") usem o asterisco("*") no lugar do x, neste caso ele identifica a operação.-->
                         </tr>
 
                         <tr> <!-- Botões Númericos + subtração -->
-                            <td><button class="botao"> 7 </button></td>
-                            <td><button class="botao"> 8 </button></td>
-                            <td><button class="botao"> 9 </button></td>
-                            <td><button class="botao"> - </button></td>
+                            <!-- Criando parâmetros -->
+                            <td><button class="botao" onclick="insert('7')"> 7 </button></td>
+                            <td><button class="botao" onclick="insert('8')"> 8 </button></td>
+                            <td><button class="botao" onclick="insert('9')"> 9 </button></td>
+                            <td><button class="botao" onclick="insert('-')"> - </button></td>
                         </tr>
 
                         <tr> <!-- Botões Númericos + adição -->
-                            <td><button class="botao"> 4 </button></td>
-                            <td><button class="botao"> 5 </button></td>
-                            <td><button class="botao"> 6 </button></td>
-                            <td><button class="botao"> + </button></td>
+                            <td><button class="botao" onclick="insert('4')"> 4 </button></td>
+                            <td><button class="botao" onclick="insert('5')"> 5 </button></td>
+                            <td><button class="botao" onclick="insert('6')"> 6 </button></td>
+                            <td><button class="botao" onclick="insert('+')"> + </button></td>
                         </tr>
 
                         <tr> <!-- Botões Númericos + igual -->
-                            <td><button class="botao"> 1 </button></td>
-                            <td><button class="botao"> 2 </button></td>
-                            <td><button class="botao"> 3 </button></td>
+                            <td><button class="botao" onclick="insert('1')"> 1 </button></td>
+                            <td><button class="botao" onclick="insert('2')"> 2 </button></td>
+                            <td><button class="botao" onclick="insert('3')"> 3 </button></td>
                             <!-- Utilizando rowSpam + colSpam-->
                             <!-- rowSpan: expandindo linhas (duas linhas) colSpan: expandindo colunas (duas colunas) -->
-                            <td rowspan="2"><button class="botao" style="height: 106px;"> = </button></td>
+                            <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()"> = </button></td>
                         </tr>
 
                         <tr> 
-                            <td colspan="2"><button class="botao" style="width: 106px;"> 0 </button></td>
-                            <td><button class="botao"> . </button></td>
+                            <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')"> 0 </button></td>
+                            <td><button class="botao" onclick="insert('.')"> . </button></td>
                         </tr>
 
                     </table>
         </div>
     </div>
 
+    <!-- Código em JS -->
+    <script> 
+        function insert(num) 
+        {
+            var numero = document.getElementById('resultado').innerHTML; 
+            document.getElementById('resultado').innerHTML = numero + num; 
+        }
 
+        /* Criando a função de limpar */ 
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = ""; 
+        }
+        
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML; 
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1); 
+        }
+
+        /* Criando a função calcular */ 
+        function calcular() 
+        {
+            var resultado = document.getElementById('resultado').innerHTML; 
+            if(resultado) /* Caso tenha algo a execução será realizada (TRUE) */
+            {                           /* eval: responsável por realizar as contas */
+                document.getElementById('resultado').innerHTML = eval(resultado); /* TRUE */    }
+            
+                else /* FALSE */ 
+                { 
+                    document.getElementById('resultado').innerHTML = "indefinido";
+                }
+        }
+    </script> 
 
 
 

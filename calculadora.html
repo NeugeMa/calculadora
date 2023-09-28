@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculadora </title>
+</head>
+<body>
+
+    <!-- escrevendo div.'alguma coisa' faz com que ela já adicione uma classe com o nome que foi dadom
+    Ex: (div.fundo) -->
+    <div class="fundo">
+        <h2> Mariana Neugebauer Dourado </h2>
+
+        <div class="calculadora">
+            <h1> Calculadora </h1>
+                <p id="resultado"> </p> <!--- Dentro deste id jogaremos o resultado da operação -->
+                    <table> 
+                        <tr> <!-- Botões -->
+                            <td><button> C </button></td>
+                            <td><button> < </button></td>
+                            <td><button> / </button></td>
+                            <td><button> x </button></td> <!-- Caso não consiga fazer a operação de vezes("x") usem o asterisco("*") no lugar do x, neste caso ele identifica a operação.-->
+                        </tr>
+
+                        <tr> <!-- Botões Númericos + subtração -->
+                            <td><button> 7 </button></td>
+                            <td><button> 8 </button></td>
+                            <td><button> 9 </button></td>
+                            <td><button> - </button></td>
+                        </tr>
+
+                        <tr> <!-- Botões Númericos + adição -->
+                            <td><button> 4 </button></td>
+                            <td><button> 5 </button></td>
+                            <td><button> 6 </button></td>
+                            <td><button> + </button></td>
+                        </tr>
+
+                        <tr> <!-- Botões Númericos + igual -->
+                            <td><button> 1 </button></td>
+                            <td><button> 2 </button></td>
+                            <td><button> 3 </button></td>
+                            <!-- Utilizando rowSpam + colSpam-->
+                            <!-- rowSpan: expandindo linhas (duas linhas) colSpan: expandindo colunas (duas colunas) -->
+                            <td rowspan="2"><button> = </button></td>
+                        </tr>
+
+                        <tr> 
+                            <td colspan="2"><button> 0 </button></td>
+                            <td><button> . </button></td>
+                        </tr>
+
+                    </table>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+</body>
+</html>
